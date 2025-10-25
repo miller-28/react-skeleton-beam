@@ -1,0 +1,36 @@
+{
+  "name": "react-skeleton-beam",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --port 2801",
+    "build": "vite build",
+    "preview": "vite preview --port 2801",
+    "lint": "eslint \"src/**/*.{js,jsx}\"",
+    "format": "prettier -w \"{src,public}/**/*.{js,jsx,json,css,html}\""
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@tanstack/react-query": "^5.90.5",
+    "i18next": "^25.6.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.65.0",
+    "react-i18next": "^16.1.4",
+    "react-router-dom": "^7.9.4",
+    "react-select": "^5.10.2",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@tanstack/react-query-devtools": "^5.90.2",
+    "@vitejs/plugin-react": "^4.3.0",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "prettier": "^3.6.2",
+    "vite": "^5.4.0"
+  }
+}

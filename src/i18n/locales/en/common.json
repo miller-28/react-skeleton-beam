@@ -1,0 +1,39 @@
+{
+    "app": {
+        "side_title": "Beam",
+        "title": "Welcome to React skeleton site - Beam"
+    },
+    "nav": {
+        "dashboard": "Dashboard",
+        "posts": "Posts",
+        "contact": "Contact"
+    },
+    "general": {
+        "loading": "Loading...",
+        "error": "An error occurred while fetching data",
+        "retry": "Retry",
+        "show_more": "Show More"
+    },
+    "languages": {
+        "english": "English",
+        "hebrew": "עברית",
+        "russian": "Русский"
+    },
+    "pages": {
+        "dashboard": {
+            "title": "Dashboard",
+            "content": "This is <strong>Beam</strong> — a Vite-powered React skeleton built for real projects. It extends <em>Prism</em> with routing, state management, and multilingual support, giving you a fast and flexible foundation ready for growth."
+        },
+        "posts": {
+            "title": "Posts",
+            "loading": "Loading posts",
+            "error": "An error occurred while loading posts",
+            "refreshing_posts": "refreshing posts"
+        },
+        "contact": {
+            "title": "Contact",
+            "sending": "Sending contact request",
+            "error": "An error occurred while sending contact request"
+        }
+    }
+}

@@ -1,0 +1,192 @@
+/* --- Prism layout (bluish) --- */
+
+/* Theme tokens */
+:root {
+  --bg: #eef5ff;            /* brighter background */
+  --panel: #f7faff;         /* very slight tint for panel */
+  --nav: #e6efff;           /* subtle nav background */
+  --text: #0e1b2a;
+  --muted: #5b6b7c;
+  --primary: #3b82f6;       /* bluish accent */
+  --primary-ink: #ffffff;
+  --border: #d9e3f5;
+  --shadow: 0 10px 30px rgba(7, 19, 40, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b121d;
+    --panel: #0f1726;
+    --nav: #0c1422;
+    --text: #e7eef8;
+    --muted: #a3b1c4;
+    --primary: #60a5fa;
+    --primary-ink: #0b121d;
+    --border: #18233a;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: Tahoma, Arial, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+               Roboto, Ubuntu, Cantarell, "Helvetica Neue", "Apple Color Emoji",
+               "Segoe UI Emoji", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page frame: centers the app container */
+.page {
+  min-height: 100%;
+  display: grid;
+  place-items: baseline center ;
+  padding: 2rem;
+}
+
+/* App container: maintains a max width and the two-column layout */
+.app {
+  width: 100%;
+  max-width: 1100px;
+  display: grid;
+  gap: 0;
+  grid-template-columns: 260px 1fr;         /* sidebar + main */
+  background: transparent;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--nav);
+  border: 1px solid var(--border);
+  border-right: none;
+  border-radius: 16px 0 0 16px;
+  padding: 1rem;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  padding: 0.5rem 0.25rem 0.75rem;
+}
+
+.nav {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: normal;
+}
+
+body.rtl .nav a {
+  text-align: right;
+}
+
+.nav a,
+.nav button {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  padding: 3px 10px;
+  border-radius: 10px;
+  color: var(--text);
+  cursor: pointer;
+}
+.nav a:hover,
+.nav button:hover { background: color-mix(in oklab, var(--primary) 10%, transparent); }
+.nav .active { background: color-mix(in oklab, var(--primary) 14%, transparent); border-color: var(--border); }
+
+/* Mobile navbar toggle (only shown on small screens) */
+.navbar {
+  display: none;
+  margin-bottom: 0.75rem;
+}
+.navbar button {
+  border: 1px solid var(--border);
+  background: var(--primary);
+  color: var(--primary-ink);
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  font-weight: 700;
+}
+
+/* Main panel */
+.main {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: none;
+  border-radius: 0 16px 16px 0;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+  min-height: 480px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px dashed var(--border);
+}
+.header h1 { margin: 0; font-size: clamp(1.1rem, 2.2vw, 1.5rem); }
+.header .muted { color: var(--muted); font-weight: 500; }
+
+/* Content helpers */
+.section { padding: 1rem 0; }
+.card {
+  background: #ffffff10; /* works in both themes without being loud */
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* Buttons and links */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--primary);
+  color: var(--primary-ink);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.button:hover { filter: brightness(1.05); }
+.button:active { transform: translateY(1px); }
+
+/* Responsive: collapse to single column and show top navbar */
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  .sidebar {
+    border-radius: 16px;        /* standalone block now */
+    border-right: 1px solid var(--border);
+    order: 1;                   /* comes before main when stacked */
+  }
+  .main {
+    border-radius: 16px;
+    order: 2;
+  }
+  .navbar { display: block; }
+  .sidebar.collapsed { display: none; }
+}
+
+/* Small utility */
+.hidden { display: none !important; }

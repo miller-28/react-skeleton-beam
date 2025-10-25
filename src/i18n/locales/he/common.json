@@ -1,0 +1,39 @@
+{
+    "app": {
+        "side_title": "Beam",
+        "title": "ברוך הבא לאתר השלד של React - Beam"
+    },
+    "nav": {
+        "dashboard": "דאשבורד",
+        "posts": "פוסטים",
+        "contact": "צור קשר"
+    },
+    "general": {
+        "loading": "טוען...",
+        "error": "אירעה שגיאה בעת שליפת הנתונים",
+        "retry": "נסה שוב",
+        "show_more": "הצג עוד"
+    },
+    "languages": {
+        "english": "English",
+        "hebrew": "עברית",
+        "russian": "Русский"
+    },
+    "pages": {
+        "dashboard": {
+            "title": "דאשבורד",
+            "content": "זהו <strong>Beam</strong> — שלד React מבוסס Vite שנבנה עבור פרויקטים אמיתיים. הוא מרחיב את <em>Prism</em> עם ניתוב, ניהול מצב ותמיכה בריבוי שפות, ומספק לך בסיס מהיר וגמיש לצמיחה."
+        },
+        "posts": {
+            "title": "פוסטים",
+            "loading": "טוען פוסטים...",
+            "error": "אירעה שגיאה בעת טעינת הפוסטים.",
+            "refreshing_posts": "מרענן פוסטים"
+        },
+        "contact": {
+            "title": "צור קשר",
+            "sending": "שולח בקשת יצירת קשר...",
+            "error": "אירעה שגיאה בעת שליחת בקשת יצירת קשר."
+        }
+    }
+}
