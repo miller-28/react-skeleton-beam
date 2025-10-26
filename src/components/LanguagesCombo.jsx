@@ -1,11 +1,16 @@
+import { useEffect } from 'react';
 import Select from 'react-select'
 import { useTranslation } from 'react-i18next';
-import { useState, useEffect } from 'react';
+import { useLang } from '../app/LangProvider';
 
 export default function LanguagesCombo() {
 
     const { t, i18n } = useTranslation();
-    const [currentLang, setCurrentLang] = useState(i18n?.language || 'en');
+    const { lang, setLang } = useLang();
+    
+    useEffect(() => {
+        i18n.changeLanguage(lang);
+    }, [lang, i18n]);
 
     const options = [
         { value: 'en', label: t('languages.english') },
@@ -15,19 +20,15 @@ export default function LanguagesCombo() {
 
     const handleChange = (selectedOption) => {
         const lang = selectedOption?.value;
-        if (!lang) return;
-        i18n.changeLanguage(lang);
-        setCurrentLang(lang);
+        if (!lang)
+            return;
+        setLang(lang);
     };
-
-    useEffect(() => {
-        setCurrentLang(i18n?.language || 'en');
-    }, [i18n?.language]);
 
     return (
         <Select
             options={options}
-            value={options.find(o => o.value === currentLang)}
+            value={options.find(o => o.value === lang)}
             onChange={handleChange}
         />
     );
